@@ -1,0 +1,143 @@
+---
+title: "OLS"
+author: "Lion De Leon"
+date: "2024-12-07"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+# install.packages("e1071")
+```
+
+
+```{r}
+# Install the necessary libraries
+library(e1071)
+library (corrplot)
+library(leaps)
+library(car)
+library(nortest)
+library(ggplot2)
+```
+
+
+```{r}
+# Store the csv into data
+data <- read.csv("fies_hhi_all_years.csv")
+```
+
+
+```{r}
+head(data)
+```
+```{r}
+summary(data)
+```
+
+```{r}
+# Removing non-numerical columns
+reg_data <- data[-1]
+```
+
+
+```{r}
+class(data)
+```
+
+
+```{r}
+# Calculate skewness for each numeric column in the dataset
+reg_skew_values <- sapply(reg_data, function(x) if (is.numeric(x)) skewness(x, na.rm = TRUE) else NA)
+reg_skewed_vars <- reg_skew_values[abs(reg_skew_values) > 1]
+# Skewness 1 is commonly chosen in practice
+names(reg_skewed_vars)
+```
+
+
+```{r}
+# Visualizing the skewness of HHI
+skewness_value <- skewness(data$HHI, na.rm = TRUE)  # na.rm = TRUE ignores NA values
+ggplot(data, aes(x = HHI)) +
+  geom_histogram(binwidth = 4, fill = "skyblue", color = "black", alpha = 0.7) +
+  labs(title = "Histogram of HHI", x = "HHI", y = "Frequency") +
+  theme_minimal() +
+  theme(panel.grid = element_blank()) 
+```
+
+
+```{r}
+# Replacing the skewed variables with their log transformation
+for (col_name in names(reg_skewed_vars)) {
+  reg_data[[paste("LOG", col_name, sep = "_")]] <- log1p(reg_data[[col_name]])
+  reg_data[[col_name]] <- NULL
+}
+
+head(reg_data)
+```
+
+
+```{r}
+names(reg_data)
+```
+
+
+```{r}
+# Regression for the VIF
+reg_data.done = lm(LOG_HHI~., data = reg_data)
+
+# ---------------------------------
+# From here on, all comments at the bottom are for skewness threshold = 2
+#reg_data.done = lm(HHI~., data = reg_data)
+```
+
+
+```{r}
+# Checking multicollinearity using VIF
+vif(reg_data.done)
+```
+
+
+```{r}
+# Selecting variables with VIF < 5 
+reg_data.done = lm(LOG_HHI~FSIZE + CASH_DOMESTIC + LOG_NETSHARE + LOG_RENTALS_REC + LOG_INTEREST + LOG_PENSION + LOG_DIVIDENDS + LOG_OTHER_SOURCE + LOG_REGFT + LOG_NET_LPR +  LOG_NET_FISH + LOG_NET_FOR + LOG_NET_RET + LOG_NET_MFG + LOG_NET_COM + LOG_NET_TRANS + LOG_NET_MIN + LOG_NET_CONS + LOG_NET_NEC + LOG_TOBACCO + LOG_FRUITVEG, data = reg_data)
+summary(reg_data.done)
+
+#reg_data.done = lm(HHI~FSIZE + NETSHARE + PENSION + NET_RECEIPT + NET_MFG + NET_TRANS + ALCOHOL + TOBACCO + LOG_RENTALS_REC + LOG_INTEREST + LOG_DIVIDENDS + LOG_OTHER_SOURCE + LOG_REGFT + LOG_NET_LPR + LOG_NET_FISH + LOG_NET_FOR + LOG_NET_COM + LOG_NET_MIN + LOG_NET_CONS + LOG_NET_NEC + LOG_FRUITVEG, data = reg_data)
+#summary(reg_data.done)
+```
+
+```{r}
+# Variable selection by choosing significant variables with alpha = 0.05
+reg_data_reduced.done = lm(LOG_HHI~LOG_NETSHARE + LOG_PENSION + LOG_REGFT + LOG_NET_LPR +  LOG_NET_FISH + LOG_NET_FOR + LOG_NET_RET + LOG_NET_COM + LOG_NET_CONS + LOG_NET_NEC, data = reg_data)
+summary(reg_data_reduced.done)
+
+#reg_data_reduced.done = lm(HHI~NET_RECEIPT + NET_TRANS + ALCOHOL + LOG_REGFT + LOG_NET_LPR + LOG_NET_FOR + LOG_NET_COM + LOG_NET_CONS + LOG_NET_NEC, data = reg_data)
+#summary(reg_data_reduced.done)
+```
+
+
+```{r}
+# ADF Test for normality assumption
+ad.test(reg_data_reduced.done$residuals)
+```
+
+
+```{r}
+# Saving the file
+# write.csv(reg_data, file = "regression_data.csv", row.names = FALSE)
+```
+
+
+
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

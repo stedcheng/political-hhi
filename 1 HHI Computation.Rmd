@@ -1,0 +1,95 @@
+---
+title: "Simple HHI"
+author: "Acuna"
+date: "2024-12-06"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r}
+library(dplyr)
+library(readxl)
+```
+
+Import political dynasties data
+```{r}
+data <- read_excel("datasets/ASoG-POLITICAL-DYNASTIES-DATASET.XLSX", sheet = "Data")
+data[is.na(data)] <- ""
+data <- data %>% mutate(Full.Name = paste(FN, LN, sep = " "))
+data
+
+```
+
+Create function to compute HHI given the province and year
+```{r}
+get_hhi <- function(year, province, region, df){
+  
+  # filter by the given region
+  filtered <- df %>% filter(Region == region)
+  filtered[is.na(filtered)] <- ""
+  
+  # filter by the given year and province
+  dfX <- filtered %>% filter(Year == year, Province == province)
+  
+  if (nrow(dfX) == 0) {
+    return(NA)  # Return NA if no data
+  }
+  
+  # retrieve list of last names
+  cols <- unique(dfX$Full.Name)
+  col_lns <- sapply(cols, function(col) dfX %>% filter(Full.Name == col) %>% pull(LN) %>% .[1])
+  names <- unique(c(col_lns))
+  names <- sort(names[names != ""])
+  hhi <- data.frame(Family = names)
+  
+  # calculate HHI
+  scores <- sapply(names, function(ln) sum(dfX$LN == ln))
+  hhi$Seats <- scores
+  hhi$Seat.Shares <- hhi$Seats / nrow(dfX)
+  
+  hh_index <- sum((100 * hhi$Seat.Shares)^2)
+  return(hh_index)
+}
+```
+
+For each year, and then for each province, compute HHI using the `get_hhi` function.
+```{r}
+provinces <- unique(data$Province)
+regions <- unique(data$Region)
+years <- c(2004, 2007, 2010, 2013, 2016)
+
+# initialize empty dataframe
+hhi_df <- data.frame(matrix(nrow = length(provinces), ncol = length(years)))
+colnames(hhi_df) <- years
+
+for (region in regions) {
+  
+  # filter by the given region
+  df8 <- data %>% filter(Region == region)
+  provinces <- unique(df8$Province)
+  
+  # create sub-dataframe for the HHIs in that region
+  hhi_a <- data.frame(matrix(nrow = length(provinces), ncol = length(years)))
+  colnames(hhi_a) <- years
+  rownames(hhi_a) <- provinces
+  
+  # compute HHI for each province and year
+  for (province in provinces) {
+    for (year in years) {
+      hhi_a[province, as.character(year)] <- get_hhi(year, province, region, data)
+    }
+  }
+
+  # row-bind the sub-dataframe to the main dataframe
+  hhi_df <- rbind(hhi_df, hhi_a)
+}
+
+hhi_df <- hhi_df[complete.cases(hhi_df),]
+hhi_df
+```
+
+Save as CSV
+```{r}
+write.csv(hhi_df, "unweighted_hhi_yearly.csv")
+```

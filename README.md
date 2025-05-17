@@ -15,12 +15,12 @@ From the OLS regression, along with VIF diagnostics, 21 variables were found to 
 Our research poses two significant insights: (1) the income attained by households and society from essential sectors such as agriculture and fisheries can act as determinants of increasing political concentration at the provincial level, and (2) political power aggregation happens beyond geographical boundaries. These issues pose significant concern on how we can prevent spillover effects of political power concentration in the hands of the few in minute processes in the society. Thus, our group calls for creation of bills and policies that will prevent politicization of vital sectors of the society, as well as an Anti-Dynasty Bill that will formally define what dynasty is and how it will become measured. These policies are suggested to ensure that a healthy competition shall still persist during election periods and prevent any collusion from political clans.
 
 <h2>R Markdown (RMD) files and PDFs</h2>
-- `1 HHI Computation`: Code used to compute the HHI from the winning politicians data.
-- `2 Merging Geographical and HHI Data; 4 Visualizations`: Code used to merge the geographical and HHI data (described in the Methods section), and codes used for exploratory data analysis on the HHI data (described in the Results section).
-- `3 FIES Data Cleaning`: Codes used to perform data cleaning on FIES datasets such as column selection, province code extraction, and aggregation.
-- `5 OLS Regression`: Codes used to fit an OLS regression model to the cleaned dataset, with the associated hypothesis tests and plots.
-- `6 Spatial Regression`: Codes used to fit a spatial regression model to the cleaned dataset, with the associated hypothesis tests and plots.
-- `Merged RMD Files`: All the five RMD files are converted to PDF and merged into one file.
+- <code>1 HHI Computation</code>: Code used to compute the HHI from the winning politicians data.
+- <code>2 Merging Geographical and HHI Data; 4 Visualizations.rmd</code>: Code used to merge the geographical and HHI data (described in the Methods section), and codes used for exploratory data analysis on the HHI data (described in the Results section).
+- <code>3 FIES Data Cleaning.rmd</code>: Codes used to perform data cleaning on FIES datasets such as column selection, province code extraction, and aggregation.
+- <code>5 OLS Regression.rmd</code>: Codes used to fit an OLS regression model to the cleaned dataset, with the associated hypothesis tests and plots.
+- <code>6 Spatial Regression.rmd</code>: Codes used to fit a spatial regression model to the cleaned dataset, with the associated hypothesis tests and plots.
+- <code>Merged RMD Files.pdf</code>: All the five RMD files are converted to PDF and merged into one file.
 
 <h2>Datasets</h2>
 This includes both raw and intermediate datasets. All datasets should be placed in the path `/datasets`.
@@ -34,19 +34,20 @@ This includes both raw and intermediate datasets. All datasets should be placed 
 
 <h3>Unuploaded Datasets</h3>
 The following datasets are unuploaded due to their large size.
-- `raw_geo_dataset` folder: Sourced from [Github](https://github.com/altcoder/philippines-psgc-shapefiles/blob/main/dist/PH_Adm2_ProvDists.shp.zip), used in RMD 2. The following files should be in the folder:
-  - `Provdists.shp.cpg`
-  - `Provdists.shp.dbf`
-  - `Provdists.shp.prj`
-  - `Provdists.shp.shp`
-  - `Provdists.shp.shx`
-- `hhi_map` folder: Produced in RMD 2, used in RMDs 3 and 5.
-- `fies_datasets` folder: Sourced from [FIES (Family Income Expenditure Survey)](https://psada.psa.gov.ph/catalog/FIES/about), used in RMD 3. The following CSVs should be in the folder:
-  - 2006: `datasets/fies_datasets/FIES PUF 2006 Vol.1.csv`
-  - 2009: `datasets/fies_datasets/FIES PUF 2009 Vol.2.csv`
-  - 2012: `datasets/fies_datasets/FIES PUF 2012 Vol.1.csv`
-  - 2015: `datasets/fies_datasets/FIES PUF 2015 Vol.1.csv`
-  - 2018: `datasets/fies_datasets/FIES PUF 2018 Vol.1.csv`
+<ul>
+  <li><code>raw_geo_dataset</code> folder: Sourced from <a href="https://github.com/altcoder/philippines-psgc-shapefiles/blob/main/dist/PH_Adm2_ProvDists.shp.zip">GitHub</a>, used in RMD 2. The following files should be in the folder:</li><ul>
+    <li><code>Provdists.shp.cpg</code></li>
+    <li><code>Provdists.shp.dbf</code></li>
+    <li><code>Provdists.shp.prj</code></li>
+    <li><code>Provdists.shp.shp</code></li>
+    <li><code>Provdists.shp.shx</code></li></ul>
+  <li><code>hhi_map</code> folder: Produced in RMD 2, used in RMDs 3 and 5.</li>
+  <li><code>fies_datasets</code> folder: Sourced from <a href="https://psada.psa.gov.ph/catalog/FIES/about">FIES (Family Income Expenditure Survey)</a>, used in RMD 3. The following CSVs should be in the folder:</li><ul>
+  <li>2006: <code>datasets/fies_datasets/FIES PUF 2006 Vol.1.csv</code></li>
+  <li>2009: <code>datasets/fies_datasets/FIES PUF 2009 Vol.2.csv</code></li>
+  <li>2012: <code>datasets/fies_datasets/FIES PUF 2012 Vol.1.csv</code></li>
+  <li>2015: <code>datasets/fies_datasets/FIES PUF 2015 Vol.1.csv</code></li>
+  <li>2018: <code>datasets/fies_datasets/FIES PUF 2018 Vol.1.csv</code></li></ul></ul>
 
 <h2>Credits</h2>
 This project was created by Rafael Acuna, Aldie Alejandro, Sted Cheng, Ivan De Leon, and Rafael Tagulao, and submitted as a requirement for the course <b>ECON 185.78i: Data Science for Economists</b> taken in the first semester of AY 2024-2025 in Ateneo de Manila University. 

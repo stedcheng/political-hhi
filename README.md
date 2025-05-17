@@ -15,7 +15,7 @@ From the OLS regression, along with VIF diagnostics, 21 variables were found to 
 Our research poses two significant insights: (1) the income attained by households and society from essential sectors such as agriculture and fisheries can act as determinants of increasing political concentration at the provincial level, and (2) political power aggregation happens beyond geographical boundaries. These issues pose significant concern on how we can prevent spillover effects of political power concentration in the hands of the few in minute processes in the society. Thus, our group calls for creation of bills and policies that will prevent politicization of vital sectors of the society, as well as an Anti-Dynasty Bill that will formally define what dynasty is and how it will become measured. These policies are suggested to ensure that a healthy competition shall still persist during election periods and prevent any collusion from political clans.
 
 <h2>R Markdown (RMD) files and PDFs</h2>
-- `1_HHI_Computation`: Code used to compute the HHI from the winning politicians data.
+- `1 HHI Computation`: Code used to compute the HHI from the winning politicians data.
 - `2 Merging Geographical and HHI Data; 4 Visualizations`: Code used to merge the geographical and HHI data (described in the Methods section), and codes used for exploratory data analysis on the HHI data (described in the Results section).
 - `3 FIES Data Cleaning`: Codes used to perform data cleaning on FIES datasets such as column selection, province code extraction, and aggregation.
 - `5 OLS Regression`: Codes used to fit an OLS regression model to the cleaned dataset, with the associated hypothesis tests and plots.
@@ -26,9 +26,11 @@ Our research poses two significant insights: (1) the income attained by househol
 This includes both raw and intermediate datasets. All datasets should be placed in the path `/datasets`.
 
 <h3>Uploaded Datasets</h3>
-- `ASoG-POLITICAL-DYNASTIES-DATASET.xlsx`: Sourced from [Ateneo School of Government](https://www.inclusivedemocracy.ph/data-and-infographics), used in RMD 1.
-- `unweighted_hhi_yearly.csv`: Produced in RMD 1, used in RMD 2.
-- `fies_hhi_all_years.csv`: Produced in RMD 3, used in RMD 4 and 5.
+<ul>
+  <li><code>ASoG-POLITICAL-DYNASTIES-DATASET.xlsx</code>: Sourced from <a href="https://www.inclusivedemocracy.ph/data-and-infographics">Ateneo School of Government</a>, used in RMD 1.</li>
+  <li><code>unweighted_hhi_yearly.csv</code>: Produced in RMD 1, used in RMD 2.</li>
+  <li><code>fies_hhi_all_years.csv</code>: Produced in RMD 3, used in RMD 4 and 5.</li>
+</ul>
 
 <h3>Unuploaded Datasets</h3>
 The following datasets are unuploaded due to their large size.
@@ -48,3 +50,5 @@ The following datasets are unuploaded due to their large size.
 
 <h2>Credits</h2>
 This project was created by Rafael Acuna, Aldie Alejandro, Sted Cheng, Ivan De Leon, and Rafael Tagulao, and submitted as a requirement for the course <b>ECON 185.78i: Data Science for Economists</b> taken in the first semester of AY 2024-2025 in Ateneo de Manila University. 
+
+

@@ -15,12 +15,14 @@ From the OLS regression, along with VIF diagnostics, 21 variables were found to 
 Our research poses two significant insights: (1) the income attained by households and society from essential sectors such as agriculture and fisheries can act as determinants of increasing political concentration at the provincial level, and (2) political power aggregation happens beyond geographical boundaries. These issues pose significant concern on how we can prevent spillover effects of political power concentration in the hands of the few in minute processes in the society. Thus, our group calls for creation of bills and policies that will prevent politicization of vital sectors of the society, as well as an Anti-Dynasty Bill that will formally define what dynasty is and how it will become measured. These policies are suggested to ensure that a healthy competition shall still persist during election periods and prevent any collusion from political clans.
 
 <h2>R Markdown (RMD) files and PDFs</h2>
-- <code>1 HHI Computation</code>: Code used to compute the HHI from the winning politicians data.
-- <code>2 Merging Geographical and HHI Data; 4 Visualizations.rmd</code>: Code used to merge the geographical and HHI data (described in the Methods section), and codes used for exploratory data analysis on the HHI data (described in the Results section).
-- <code>3 FIES Data Cleaning.rmd</code>: Codes used to perform data cleaning on FIES datasets such as column selection, province code extraction, and aggregation.
-- <code>5 OLS Regression.rmd</code>: Codes used to fit an OLS regression model to the cleaned dataset, with the associated hypothesis tests and plots.
-- <code>6 Spatial Regression.rmd</code>: Codes used to fit a spatial regression model to the cleaned dataset, with the associated hypothesis tests and plots.
-- <code>Merged RMD Files.pdf</code>: All the five RMD files are converted to PDF and merged into one file.
+<ul>
+  <li><code>1 HHI Computation</code>: Code used to compute the HHI from the winning politicians data.</li>
+  <li><code>2 Merging Geographical and HHI Data; 4 Visualizations.rmd</code>: Code used to merge the geographical and HHI data (described in the Methods section), and codes used for exploratory data analysis on the HHI data (described in the Results section).</li>
+  <li><code>3 FIES Data Cleaning.rmd</code>: Codes used to perform data cleaning on FIES datasets such as column selection, province code extraction, and aggregation.</li>
+  <li><code>5 OLS Regression.rmd</code>: Codes used to fit an OLS regression model to the cleaned dataset, with the associated hypothesis tests and plots.</li>
+  <li><code>6 Spatial Regression.rmd</code>: Codes used to fit a spatial regression model to the cleaned dataset, with the associated hypothesis tests and plots.</li>
+  <li><code>Merged RMD Files.pdf</code>: All the five RMD files are converted to PDF and merged into one file.</li>
+</ul>
 
 <h2>Datasets</h2>
 This includes both raw and intermediate datasets. All datasets should be placed in the path `/datasets`.

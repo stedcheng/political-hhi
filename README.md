@@ -25,7 +25,7 @@ Our research poses two significant insights: (1) the income attained by househol
 </ul>
 
 <h2>Datasets</h2>
-This includes both raw and intermediate datasets. All datasets should be placed in the path `/datasets`.
+This includes both raw and intermediate datasets. All datasets should be placed in the path <code>datasets/</code>.
 
 <h3>Uploaded Datasets</h3>
 <ul>
@@ -37,19 +37,19 @@ This includes both raw and intermediate datasets. All datasets should be placed 
 <h3>Unuploaded Datasets</h3>
 The following datasets are unuploaded due to their large size.
 <ul>
-  <li><code>raw_geo_dataset</code> folder: Sourced from <a href="https://github.com/altcoder/philippines-psgc-shapefiles/blob/main/dist/PH_Adm2_ProvDists.shp.zip">GitHub</a>, used in RMD 2. The following files should be in the folder:</li><ul>
+  <li><code>raw_geo_dataset</code> folder: Sourced from <a href="https://github.com/altcoder/philippines-psgc-shapefiles/blob/main/dist/PH_Adm2_ProvDists.shp.zip">GitHub</a>, used in RMD 2. The following files should be in the <code>datasets/raw_geo_dataset/</code> folder:</li><ul>
     <li><code>Provdists.shp.cpg</code></li>
     <li><code>Provdists.shp.dbf</code></li>
     <li><code>Provdists.shp.prj</code></li>
     <li><code>Provdists.shp.shp</code></li>
     <li><code>Provdists.shp.shx</code></li></ul>
   <li><code>hhi_map</code> folder: Produced in RMD 2, used in RMDs 3 and 5.</li>
-  <li><code>fies_datasets</code> folder: Sourced from <a href="https://psada.psa.gov.ph/catalog/FIES/about">FIES (Family Income Expenditure Survey)</a>, used in RMD 3. The following CSVs should be in the folder:</li><ul>
-  <li>2006: <code>datasets/fies_datasets/FIES PUF 2006 Vol.1.csv</code></li>
-  <li>2009: <code>datasets/fies_datasets/FIES PUF 2009 Vol.2.csv</code></li>
-  <li>2012: <code>datasets/fies_datasets/FIES PUF 2012 Vol.1.csv</code></li>
-  <li>2015: <code>datasets/fies_datasets/FIES PUF 2015 Vol.1.csv</code></li>
-  <li>2018: <code>datasets/fies_datasets/FIES PUF 2018 Vol.1.csv</code></li></ul></ul>
+  <li><code>fies_datasets</code> folder: Sourced from <a href="https://psada.psa.gov.ph/catalog/FIES/about">FIES (Family Income Expenditure Survey)</a>, used in RMD 3. The following CSVs should be in the <code>datasets/fies_datasets/</code> folder:</li><ul>
+  <li>2006: <code>FIES PUF 2006 Vol.1.csv</code></li>
+  <li>2009: <code>FIES PUF 2009 Vol.2.csv</code></li>
+  <li>2012: <code>FIES PUF 2012 Vol.1.csv</code></li>
+  <li>2015: <code>FIES PUF 2015 Vol.1.csv</code></li>
+  <li>2018: <code>FIES PUF 2018 Vol.1.csv</code></li></ul></ul>
 
 <h2>Credits</h2>
 This project was created by Rafael Acuna, Aldie Alejandro, Sted Cheng, Ivan De Leon, and Rafael Tagulao, and submitted as a requirement for the course <b>ECON 185.78i: Data Science for Economists</b> taken in the first semester of AY 2024-2025 in Ateneo de Manila University. 

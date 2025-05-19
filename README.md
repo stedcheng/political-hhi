@@ -22,7 +22,7 @@ Our research poses two significant insights: (1) the income attained by househol
   <li><code>5 OLS Regression.rmd</code>: Codes used to fit an OLS regression model to the cleaned dataset, with the associated hypothesis tests and plots.</li>
   <li><code>6 Spatial Regression.rmd</code>: Codes used to fit a spatial regression model to the cleaned dataset, with the associated hypothesis tests and plots.</li>
   <li><code>Merged RMD Files.pdf</code>: All the five RMD files are converted to PDF and merged into one file.</li>
-  <li><code>Slide Deck.pdf</code>: Slide deck used to present the research.</li>
+  <li><code>Slide Deck.pdf</code>: Slide deck used to present the research. (For a more complete discussion, check the <a href="https://drive.google.com/open?id=1cI8-gr_IoQ5cf_J_n5p232eWF_7c5B_K&usp=drive_copy">video</a>.)</li>
 </ul>
 
 <h2>Datasets</h2>
